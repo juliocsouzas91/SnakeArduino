@@ -59,8 +59,10 @@ void loop() {
   yPosition = analogRead(Vy);
   Sw_state = digitalRead(Sw);
   TreatInput(xPosition,yPosition,&dir);
-  TrocaPos(&posx, &posy, dir);
-  //UpdateSnakePosition(&posx,&posy,dir);
+  //TrocaPos(&posx, &posy, dir);
+  m.setDot(posx, posy, false);
+  UpdateSnakePosition(&posx,&posy,dir);
+  m.setDot(posx, posy, true);
   //PrintSnake(SnakePositionX,SnakePositionY,posx,posy,SnakeSize,&SnakePointer);
   CheckColision(&dotx,&doty,posx,posy);
   delay(200);
